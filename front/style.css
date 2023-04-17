@@ -9,3 +9,7 @@ svg circle {
   stroke-width: 0.02em;
   stroke: black;
 }
+
+svg g.samples circle {
+  fill: black;
+}
