@@ -13,9 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "rimraf": "^5.0.0",
     "typescript": "^5.0.4"
-  },
-  "dependencies": {
-    "rimraf": "^5.0.0"
   }
 }
