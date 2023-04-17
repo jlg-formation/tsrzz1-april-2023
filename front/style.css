@@ -13,3 +13,8 @@ svg circle {
 svg g.samples circle {
   fill: black;
 }
+
+svg g.lines line {
+  stroke: black;
+  stroke-width: 0.02em;
+}
