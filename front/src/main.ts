@@ -1,21 +1,15 @@
 import "./style.css";
 import { cx0, cy0, r0, samples, svgns } from "./constant";
+import { querySelector } from "./misc";
+import { getAngle } from "./math";
 
-console.log("start xxx");
-
-const container = document.querySelector("svg g.samples");
-if (container === null) {
-  throw new Error("container not found");
-}
-const lineContainer = document.querySelector("svg g.lines");
-if (lineContainer === null) {
-  throw new Error("container not found");
-}
+const container = querySelector("svg g.samples");
+const lineContainer = querySelector("svg g.lines");
 
 for (let i = 0; i < samples; i++) {
   const circle = document.createElementNS(svgns, "circle");
 
-  const angle = (i * (2 * Math.PI)) / samples;
+  const angle = getAngle(i, samples);
   const x = cx0 + r0 * Math.cos(angle);
   const y = cy0 + r0 * Math.sin(angle);
 
@@ -30,7 +24,7 @@ const multiplicationFactor = 2;
 for (let i = 0; i < samples; i++) {
   const line = document.createElementNS(svgns, "line");
 
-  const angle1 = (i * (2 * Math.PI)) / samples;
+  const angle1 = getAngle(i, samples);
   const angle2 = angle1 * multiplicationFactor;
 
   const x1 = cx0 + r0 * Math.cos(angle1);
