@@ -1,10 +1,7 @@
+import { cx0, cy0, r0, samples, svgns } from "./constant.js";
+
 console.log("start xxx");
 
-const cx0 = 50;
-const cy0 = 50;
-const r0 = 45;
-
-const svgns = "http://www.w3.org/2000/svg";
 const container = document.querySelector("svg g.samples");
 if (container === null) {
   throw new Error("container not found");
@@ -14,7 +11,6 @@ if (lineContainer === null) {
   throw new Error("container not found");
 }
 
-const samples = 10;
 for (let i = 0; i < samples; i++) {
   const circle = document.createElementNS(svgns, "circle");
 
