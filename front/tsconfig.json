@@ -2,5 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "outDir": "dist"
-  }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
