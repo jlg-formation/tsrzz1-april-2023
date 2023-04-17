@@ -1,4 +1,4 @@
-console.log("start");
+console.log("start xxx");
 
 const cx0 = 50;
 const cy0 = 50;
