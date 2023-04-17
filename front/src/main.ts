@@ -6,7 +6,13 @@ const r0 = 45;
 
 const svgns = "http://www.w3.org/2000/svg";
 const container = document.querySelector("svg g.samples");
+if (container === null) {
+  throw new Error("container not found");
+}
 const lineContainer = document.querySelector("svg g.lines");
+if (lineContainer === null) {
+  throw new Error("container not found");
+}
 
 const samples = 10;
 for (let i = 0; i < samples; i++) {
@@ -17,9 +23,9 @@ for (let i = 0; i < samples; i++) {
   const y = cy0 + r0 * Math.sin(angle);
 
   const r = 1;
-  circle.setAttributeNS(null, "cx", x);
-  circle.setAttributeNS(null, "cy", y);
-  circle.setAttributeNS(null, "r", r);
+  circle.setAttributeNS(null, "cx", x + "");
+  circle.setAttributeNS(null, "cy", String(y));
+  circle.setAttributeNS(null, "r", r.toString());
   container.appendChild(circle);
 }
 
@@ -36,10 +42,10 @@ for (let i = 0; i < samples; i++) {
   const x2 = cx0 + r0 * Math.cos(angle2);
   const y2 = cy0 + r0 * Math.sin(angle2);
 
-  line.setAttributeNS(null, "x1", x1);
-  line.setAttributeNS(null, "y1", y1);
-  line.setAttributeNS(null, "x2", x2);
-  line.setAttributeNS(null, "y2", y2);
+  line.setAttributeNS(null, "x1", x1 + "");
+  line.setAttributeNS(null, "y1", y1 + "");
+  line.setAttributeNS(null, "x2", x2 + "");
+  line.setAttributeNS(null, "y2", y2 + "");
 
   lineContainer.appendChild(line);
 }
