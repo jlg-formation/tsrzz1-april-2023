@@ -1,4 +1,5 @@
-import { cx0, cy0, r0, samples, svgns } from "./constant.js";
+import "./style.css";
+import { cx0, cy0, r0, samples, svgns } from "./constant";
 
 console.log("start xxx");
 
