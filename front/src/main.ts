@@ -1,5 +1,5 @@
 import { Board } from "./Board";
-import "./style.css";
+import "./style.scss";
 
 const board = new Board();
 board.setConfig({

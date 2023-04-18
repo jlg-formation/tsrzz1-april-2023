@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+svg {
+  border: 0.1em solid black;
+  width: 50em;
+  height: 20em;
+}
+
+svg circle {
+  fill: transparent;
+  stroke-width: 0.02em;
+  stroke: black;
+}
+
+svg g.samples circle {
+  fill: black;
+}
+
+svg g.lines line {
+  stroke: black;
+  stroke-width: 0.02em;
+}
+
+div.control-panel {
+  border: 0.1em solid black;
+  width: 50em;
+
+  padding: 0.5em;
+
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+
+  label {
+    display: flex;
+    flex-flow: column;
+  }
+
+  div.buttons {
+    display: flex;
+    justify-content: space-between;
+    button {
+      cursor: pointer;
+      padding: 0.5em 1em;
+    }
+  }
+}
