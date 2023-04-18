@@ -9,6 +9,7 @@ export class ControlPanel {
     multiplicationFactor: 0,
     samples: 0,
   };
+  isPlaying = false;
 
   constructor() {
     this.setActions();
@@ -34,6 +35,8 @@ export class ControlPanel {
 
       sliderElt.value = value + "";
     }
+    const playBtn = querySelector("div.control-panel div.buttons button.play");
+    playBtn.innerHTML = this.isPlaying ? "Pause" : "Play";
   }
 
   setActions() {
@@ -54,6 +57,8 @@ export class ControlPanel {
     console.log("playBtn: ", playBtn);
     playBtn.addEventListener("click", () => {
       console.log("click");
+      this.isPlaying = !this.isPlaying;
+      this.render();
     });
   }
 
