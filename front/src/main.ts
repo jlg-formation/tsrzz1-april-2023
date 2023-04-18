@@ -1,36 +1,9 @@
-import { samples, svgns } from "./constant";
-import { getAngle, getPoint } from "./math";
-import { querySelector, setAttributeNbr } from "./misc";
+import { Board } from "./Board";
 import "./style.css";
 
-const container = querySelector("svg g.samples");
-const lineContainer = querySelector("svg g.lines");
-
-for (let i = 0; i < samples; i++) {
-  const circle = document.createElementNS(svgns, "circle");
-
-  const angle = getAngle(i, samples);
-  const { x, y } = getPoint(angle);
-  const r = 1;
-  setAttributeNbr(circle, "cx", x);
-  setAttributeNbr(circle, "cy", y);
-  setAttributeNbr(circle, "r", r);
-  container.appendChild(circle);
-}
-
-const multiplicationFactor = 2;
-for (let i = 0; i < samples; i++) {
-  const line = document.createElementNS(svgns, "line");
-
-  const angle1 = getAngle(i, samples);
-  const angle2 = angle1 * multiplicationFactor;
-
-  const { x: x1, y: y1 } = getPoint(angle1);
-  const p2 = getPoint(angle2);
-
-  setAttributeNbr(line, "x1", x1);
-  setAttributeNbr(line, "y1", y1);
-  setAttributeNbr(line, "x2", p2.x);
-  setAttributeNbr(line, "y2", p2.y);
-  lineContainer.appendChild(line);
-}
+const board = new Board();
+board.setConfig({
+  samples: 50,
+  multiplicationFactor: 3,
+});
+board.draw();
