@@ -9,6 +9,11 @@ export class Board {
     multiplicationFactor: 0,
   };
 
+  clean() {
+    querySelector("svg g.samples").innerHTML = "";
+    querySelector("svg g.lines").innerHTML = "";
+  }
+
   draw() {
     const container = querySelector("svg g.samples");
     const lineContainer = querySelector("svg g.lines");
@@ -43,6 +48,11 @@ export class Board {
       setAttributeNbr(line, "y2", p2.y);
       lineContainer.appendChild(line);
     }
+  }
+
+  redraw() {
+    this.clean();
+    this.draw();
   }
 
   setConfig(config: Config) {
