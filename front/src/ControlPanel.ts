@@ -1,5 +1,6 @@
+import { step } from "./constant";
 import { Config } from "./interfaces/Config";
-import { getKeys, querySelector } from "./misc";
+import { getKeys, querySelector, sleep } from "./misc";
 
 type Callback = (newConfig: Config) => void;
 
@@ -18,6 +19,24 @@ export class ControlPanel {
 
   onChange(callback: Callback) {
     this.callback = callback;
+  }
+
+  async play() {
+    while (this.isPlaying) {
+      await sleep(200);
+      console.log("increment");
+
+      let mf = this.config.multiplicationFactor;
+      mf = mf + step;
+      console.log("mf: ", mf);
+      mf = mf % 100;
+      mf = Math.round(mf * 1e2) / 1e2;
+      console.log("mf: ", mf);
+      this.config.multiplicationFactor = mf;
+
+      this.render();
+      this.callback(this.config);
+    }
   }
 
   render() {
@@ -59,6 +78,9 @@ export class ControlPanel {
       console.log("click");
       this.isPlaying = !this.isPlaying;
       this.render();
+      if (this.isPlaying) {
+        this.play();
+      }
     });
   }
 

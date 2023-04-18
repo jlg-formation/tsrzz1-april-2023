@@ -5,3 +5,5 @@ export const r0 = 45;
 export const svgns = "http://www.w3.org/2000/svg";
 
 export const samples = 100;
+
+export const step = 0.01;

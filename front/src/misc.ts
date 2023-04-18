@@ -23,3 +23,11 @@ export const setAttributeNbr = (
 export const getKeys = <T extends object>(o: T): (keyof T)[] => {
   return Object.keys(o) as (keyof T)[];
 };
+
+export const sleep = (delayMs: number) => {
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, delayMs);
+  });
+};
