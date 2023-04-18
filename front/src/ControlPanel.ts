@@ -27,8 +27,9 @@ export class ControlPanel {
       elt.innerHTML = value + "";
 
       const sliderElt = querySelector(
-        `div.control-panel label.${key} input`
-      ) as HTMLInputElement;
+        `div.control-panel label.${key} input`,
+        HTMLInputElement
+      );
       console.log("sliderElt: ", sliderElt);
       sliderElt.value = value + "";
     }

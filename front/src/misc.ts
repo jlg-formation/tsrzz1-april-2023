@@ -1,9 +1,15 @@
-export const querySelector = (cssSelector: string): Element => {
+export const querySelector = <T extends Element>(
+  cssSelector: string,
+  type?: new () => T
+): T => {
   const elt = document.querySelector(cssSelector);
   if (elt === null) {
     throw new Error("Cannot find Element with selector = " + cssSelector);
   }
-  return elt;
+  if (type && !(elt instanceof type)) {
+    throw new Error(`Found selector ${cssSelector} but not of type ${type}`);
+  }
+  return elt as T;
 };
 
 export const setAttributeNbr = (
