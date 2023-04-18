@@ -3,6 +3,10 @@ import { ControlPanel } from "./ControlPanel";
 import { Config } from "./interfaces/Config";
 import "./style.scss";
 
+if (!import.meta.env.DEV) {
+  console.log = () => {};
+}
+
 const board = new Board();
 const config: Config = {
   samples: 50,

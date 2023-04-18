@@ -8,4 +8,4 @@ export const samples = 100;
 
 export const step = 0.01;
 
-export const url = "http://localhost:3000/api/random-config";
+export const url = "/api/random-config";
