@@ -11,6 +11,7 @@ export class ControlPanel {
   };
 
   constructor() {
+    this.setActions();
     this.render();
   }
 
@@ -32,6 +33,21 @@ export class ControlPanel {
       );
       console.log("sliderElt: ", sliderElt);
       sliderElt.value = value + "";
+    }
+  }
+
+  setActions() {
+    const keys = getKeys(this.config);
+    for (const key of keys) {
+      const sliderElt = querySelector(
+        `div.control-panel label.${key} input`,
+        HTMLInputElement
+      );
+      sliderElt.addEventListener("input", () => {
+        this.config[key] = Number(sliderElt.value);
+        this.render();
+        this.callback(this.config);
+      });
     }
   }
 
