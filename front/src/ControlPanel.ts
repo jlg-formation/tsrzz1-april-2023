@@ -1,5 +1,5 @@
 import { Observable, Subscription, map, timer } from "rxjs";
-import { step } from "./constant";
+import { step, url } from "./constant";
 import { Config } from "./interfaces/Config";
 import { getKeys, querySelector } from "./misc";
 
@@ -95,6 +95,15 @@ export class ControlPanel {
     console.log("randomConfigBtn: ", randomConfigBtn);
     randomConfigBtn.addEventListener("click", () => {
       console.log("click");
+      (async () => {
+        const response = await fetch(url);
+        console.log("response: ", response);
+        const config = await response.json();
+        console.log("config: ", config);
+        this.config = config;
+        this.render();
+        this.callback(this.config);
+      })();
     });
   }
   pause() {

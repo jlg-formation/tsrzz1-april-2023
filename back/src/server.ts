@@ -8,6 +8,11 @@ const publicDir = "../front/dist";
 const port = 3000;
 const app = express();
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 app.use("/api", api);
 
 app.use(express.static(publicDir));

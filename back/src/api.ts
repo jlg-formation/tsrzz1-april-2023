@@ -7,8 +7,8 @@ const app = Router();
 
 app.get("/random-config", (req, res) => {
   res.json({
-    samples: rand(0, 100),
-    multiplicationFactor: rand(0, 200),
+    samples: rand(0, 200),
+    multiplicationFactor: rand(0, 100),
   });
 });
 
