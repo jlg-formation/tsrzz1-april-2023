@@ -1,5 +1,5 @@
 import { Config } from "./interfaces/Config";
-import { querySelector } from "./misc";
+import { getKeys, querySelector } from "./misc";
 
 type Callback = (newConfig: Config) => void;
 
@@ -19,7 +19,7 @@ export class ControlPanel {
   }
 
   render() {
-    const keys: (keyof Config)[] = Object.keys(this.config) as (keyof Config)[];
+    const keys = getKeys(this.config);
     for (const key of keys) {
       const elt = querySelector(`div.control-panel label.${key} .value`);
       console.log("elt: ", elt);
