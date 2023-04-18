@@ -1,6 +1,6 @@
 import { samples, svgns } from "./constant";
 import { getAngle, getPoint } from "./math";
-import { querySelector } from "./misc";
+import { querySelector, setAttributeNbr } from "./misc";
 import "./style.css";
 
 const container = querySelector("svg g.samples");
@@ -12,9 +12,9 @@ for (let i = 0; i < samples; i++) {
   const angle = getAngle(i, samples);
   const { x, y } = getPoint(angle);
   const r = 1;
-  circle.setAttributeNS(null, "cx", x + "");
-  circle.setAttributeNS(null, "cy", String(y));
-  circle.setAttributeNS(null, "r", r.toString());
+  setAttributeNbr(circle, "cx", x);
+  setAttributeNbr(circle, "cy", y);
+  setAttributeNbr(circle, "r", r);
   container.appendChild(circle);
 }
 
@@ -28,10 +28,9 @@ for (let i = 0; i < samples; i++) {
   const { x: x1, y: y1 } = getPoint(angle1);
   const p2 = getPoint(angle2);
 
-  line.setAttributeNS(null, "x1", x1 + "");
-  line.setAttributeNS(null, "y1", y1 + "");
-  line.setAttributeNS(null, "x2", p2.x + "");
-  line.setAttributeNS(null, "y2", p2.y + "");
-
+  setAttributeNbr(line, "x1", x1);
+  setAttributeNbr(line, "y1", y1);
+  setAttributeNbr(line, "x2", p2.x);
+  setAttributeNbr(line, "y2", p2.y);
   lineContainer.appendChild(line);
 }
