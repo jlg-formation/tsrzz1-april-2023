@@ -23,7 +23,7 @@ export class ControlPanel {
     const keys = getKeys(this.config);
     for (const key of keys) {
       const elt = querySelector(`div.control-panel label.${key} .value`);
-      console.log("elt: ", elt);
+
       const value = this.config[key];
       elt.innerHTML = value + "";
 
@@ -31,7 +31,7 @@ export class ControlPanel {
         `div.control-panel label.${key} input`,
         HTMLInputElement
       );
-      console.log("sliderElt: ", sliderElt);
+
       sliderElt.value = value + "";
     }
   }
@@ -49,6 +49,12 @@ export class ControlPanel {
         this.callback(this.config);
       });
     }
+
+    const playBtn = querySelector("div.control-panel div.buttons button.play");
+    console.log("playBtn: ", playBtn);
+    playBtn.addEventListener("click", () => {
+      console.log("click");
+    });
   }
 
   setConfig(config: Config) {
