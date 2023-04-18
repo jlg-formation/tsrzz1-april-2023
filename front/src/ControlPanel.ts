@@ -88,6 +88,14 @@ export class ControlPanel {
       }
       this.pause();
     });
+
+    const randomConfigBtn = querySelector(
+      "div.control-panel div.buttons button.random"
+    );
+    console.log("randomConfigBtn: ", randomConfigBtn);
+    randomConfigBtn.addEventListener("click", () => {
+      console.log("click");
+    });
   }
   pause() {
     this.subscription?.unsubscribe();
