@@ -25,6 +25,12 @@ export class ControlPanel {
       console.log("elt: ", elt);
       const value = this.config[key];
       elt.innerHTML = value + "";
+
+      const sliderElt = querySelector(
+        `div.control-panel label.${key} input`
+      ) as HTMLInputElement;
+      console.log("sliderElt: ", sliderElt);
+      sliderElt.value = value + "";
     }
   }
 
