@@ -1,10 +1,14 @@
 import express from "express";
 import serveIndex from "serve-index";
 
+import api from "./api";
+
 console.log("Starting server...");
 const publicDir = "../front/dist";
 const port = 3000;
 const app = express();
+
+app.use("/api", api);
 
 app.use(express.static(publicDir));
 app.use(serveIndex(publicDir));
